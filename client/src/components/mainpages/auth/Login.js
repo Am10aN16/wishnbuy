@@ -10,31 +10,42 @@ const Login = () => {
     email:'', password:''
   })
 
+
+
   const onChangeInput = e =>{
     const {name,value} = e.target;
     setUser({...user,[name]:value})
   }
 
-const loginToast =() => {
-toast.success("Login Successfull!",{
-  position:"top-center",
-  closeOnClick: true,
-  autoClose: 1000,
-})
-}
-
+  
   const loginSubmit = async e =>{
     e.preventDefault()
 
     try {
+  
       await axios.post('/user/login',{...user})
 
       localStorage.setItem('firstLogin', true)
       
+        toast.success("Login Success!!",{
+          position:"top-center",
+          closeOnClick: true,
+          autoClose: 2000,
+        })
+      
+     
       window.location.href = "/";
 
+
     } catch (err) {
-      alert(err.response.data.msg)
+    
+      if(err.response.status===400 || err.response.status===500){
+        toast.error(`${err.response.data.msg}`,{
+          position:"top-center",
+          closeOnClick: true,
+          autoClose: 1000,
+        })
+      }
     }
   }
 
@@ -49,7 +60,7 @@ toast.success("Login Successfull!",{
       placeholder="Password" value={user.password} onChange={onChangeInput} />
 
     <div className="row">
-      <button type='submit' onClick={loginToast}>Login</button>
+      <button type='submit' >Login</button>
       <NavLink to='/register'>Register</NavLink>
     </div>
 
@@ -57,6 +68,6 @@ toast.success("Login Successfull!",{
     <ToastContainer/>
     </div>
   )
-}
+  }
 
 export default Login

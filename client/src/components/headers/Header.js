@@ -6,6 +6,7 @@ import Cart from './icon/cart.svg';
 // import Cart from './icon/opencart.svg';
 import {NavLink} from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
 const Header = () => {
@@ -22,6 +23,12 @@ const Header = () => {
       await axios.get('/user/logout')
 
       localStorage.removeItem('firstLogin')
+     
+        toast.success("Logged you out!!",{
+          position:"top-center",
+          closeOnClick: true,
+          autoClose: 1500,
+        })
       
      window.location.href = "/";
 

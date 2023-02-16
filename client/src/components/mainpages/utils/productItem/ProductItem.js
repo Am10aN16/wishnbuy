@@ -13,6 +13,7 @@ const ProductItem = ({product , isAdmin , deleteProduct ,handleCheck }) => {
       />
     }
 
+
     <img src={product.images.url} alt="" />
 
     <div className="product_box">

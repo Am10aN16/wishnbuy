@@ -1,9 +1,33 @@
+.maindiv{
+    margin: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .cart{
     position: relative;
-    border: 3px solid #ccc;
-    transform: scaleY(0.98);
-    height: 500px;
-  
+    /* border: 3px solid #ccc; */
+    /* transform: scaleY(0.98); */
+min-height: 250px;
+}
+
+.delete{
+    background-color: red;
+    padding: 2px 9px;
+    margin-top: 5px;
+    color: white !important;
+    border-radius: 7px;
+    font-size: 17px;
+}
+.inc_dec{
+    font-size: 30px;
+}
+
+.paypal{
+    margin-left: 20px !important;
+}
+.total{
+    padding: 20px;
 }
 
 @media(max-width:982px){

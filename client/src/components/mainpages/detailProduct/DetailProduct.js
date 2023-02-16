@@ -42,6 +42,7 @@ const DetailProduct = () => {
 
   return (
     <>
+    <div className='main'>
     <div className='detail'>
       <img src={detailProduct.images.url} alt="" />
       <div className='box-detail'>
@@ -60,12 +61,12 @@ const DetailProduct = () => {
         Buy Now
         </NavLink>
         
-        
+        </div>
       </div>
     </div>
 
     <div>
-      <h2>Related products</h2>
+      <h2 id="related">Related Products</h2>
       <div className='products'>
         {
           products.map(product=>{

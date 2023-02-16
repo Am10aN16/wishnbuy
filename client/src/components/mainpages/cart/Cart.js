@@ -76,7 +76,7 @@ const Cart = () => {
       closeOnClick: true,
       autoClose: 1000,
     });
-    alert("Login to Continue")
+    // alert("Login to Continue")
     window.location.href = "/login";
   }
 
@@ -98,6 +98,7 @@ const Cart = () => {
     <div>
     {
       cart.map(product => (
+        <div className='maindiv'>
         <div className='detail cart' key = {product._id}>
       <img src={product.images.url} alt="" style={{height: "300px",width:"300px" ,objectFit:"fill",borderRadius:"10px"}} />
 
@@ -109,12 +110,13 @@ const Cart = () => {
         <p>{product.content}</p>
         
         <div className="amount">
-          <button onClick={()=> decrement(product._id)}> - </button>
+          <button onClick={()=> decrement(product._id)} className='inc_dec'> - </button>
           <span>{product.quantity}</span>
-          <button onClick={()=> increment(product._id)}> + </button>
+          <button onClick={()=> increment(product._id)} className='inc_dec'> + </button>
         </div>
         <div className="delete" onClick={()=> removeProduct(product._id)}>X</div>
       </div>
+    </div>
     </div>
       ))
     }
@@ -127,11 +129,12 @@ const Cart = () => {
         <PaypalButton
         total={total}
         tranSuccess={tranSuccess}
+        className="paypal"
       /> 
       :
      <button style={{background:"rgb(3,165,203)" ,
-       padding:"0px 30px",
-        borderRadius:"50px",
+       padding:"0px 80px",
+        borderRadius:"7px",
          color:"white",
           fontWeight:"600"}} onClick={()=> errToast()}>Payment
            </button>
