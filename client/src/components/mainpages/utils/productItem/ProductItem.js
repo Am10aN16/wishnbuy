@@ -12,8 +12,6 @@ const ProductItem = ({product , isAdmin , deleteProduct ,handleCheck }) => {
         onChange={()=> handleCheck(product._id)}
       />
     }
-
-
     <img src={product.images.url} alt="" />
 
     <div className="product_box">
